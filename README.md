@@ -1,6 +1,6 @@
 # Pipelines Automation
 
-#### Commit Message Validation
+### Commit Message Validation
 
 <details>
 <summary><b>Follow these steps to enable commit message validation</b></summary>
