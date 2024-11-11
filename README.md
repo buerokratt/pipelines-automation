@@ -1,9 +1,7 @@
 # Pipelines Automation
 
-### Commit Message Validation
-
 <details>
-<summary><b>Follow these steps to enable commit message validation</b></summary>
+<summary><b>Commit Message Validation</b></summary>
 
 - Install Husky:
   ```bash
@@ -15,4 +13,8 @@
   npx husky init
   ```
 - Copy commit-msg to your .husky directory.
+</details>
+
+<details>
+<summary><b>Automatic Changelog Generation</b></summary>
 </details>
