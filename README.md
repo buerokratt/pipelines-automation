@@ -17,4 +17,9 @@
 
 <details>
 <summary><b>Automatic Changelog Generation</b></summary>
+
+- Generate Changelog:
+  ```bash
+  npm run changelog
+  ```
 </details>
