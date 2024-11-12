@@ -5,6 +5,9 @@
   },
   "scripts": {
     "prepare": "husky",
-    "changelog": "./generate-changelog.sh"
+    "changelog": "./generate-changelog.sh",
+    "bump-patch": "./bump-version.sh patch",
+    "bump-minor": "./bump-version.sh minor",
+    "bump-major": "./bump-version.sh major"
   }
 }
