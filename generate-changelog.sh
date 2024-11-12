@@ -1,6 +1,6 @@
 #!/bin/bash
 
-env_content=$(<release.env)
+env_file=$(<release.env)
 
 REMOTE_URL=$(git config --get remote.origin.url)
 
@@ -26,7 +26,7 @@ while IFS= read -r line; do
             break
         fi
     fi
-done <<< "$env_content"
+done <<< "$env_file"
 
 if [ "$found_branch" == true ]; then
     current_version="$MAJOR.$MINOR.$PATCH "
