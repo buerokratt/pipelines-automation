@@ -1,4 +1,4 @@
-### 1.0.7 (13-11-2024)
+### 1.0.8 (13-11-2024)
 ## Features
 - **207**: added check-version action by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#0194cd0](https://github.com/1AhmedYasser/pipelines-automation/commit/0194cd0)
 - **207**: add version bump script by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#79559fe](https://github.com/1AhmedYasser/pipelines-automation/commit/79559fe)
@@ -16,6 +16,7 @@
 ## Tests
 - **207**: added a test commit by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#67f38a1](https://github.com/1AhmedYasser/pipelines-automation/commit/67f38a1)
 ## Chores
+- **207**: Modified check version by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#0168e65](https://github.com/1AhmedYasser/pipelines-automation/commit/0168e65)
 - **207**: modified script by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#54cc80b](https://github.com/1AhmedYasser/pipelines-automation/commit/54cc80b)
 - **207**: modified check version script by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#258401d](https://github.com/1AhmedYasser/pipelines-automation/commit/258401d)
 - **207**: added release config by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#e2af270](https://github.com/1AhmedYasser/pipelines-automation/commit/e2af270)
@@ -32,6 +33,7 @@
 - **207**: Modified commit-msg by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#3eebac1](https://github.com/1AhmedYasser/pipelines-automation/commit/3eebac1)
 - **207**: added a chore commit by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#b0169b1](https://github.com/1AhmedYasser/pipelines-automation/commit/b0169b1)
 ## Others
+- docs: update version by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#c2130c0](https://github.com/1AhmedYasser/pipelines-automation/commit/c2130c0)
 - docs: update version by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#18df410](https://github.com/1AhmedYasser/pipelines-automation/commit/18df410)
 - docs: update version by [<u>@1AHMEDYASSER</u>](https://www.github.com/) in [#88f22fb](https://github.com/1AhmedYasser/pipelines-automation/commit/88f22fb)
 - docs: update version by [<u>@1AHMEDYASSER</u>](https://www.github.com/) in [#72bac59](https://github.com/1AhmedYasser/pipelines-automation/commit/72bac59)
