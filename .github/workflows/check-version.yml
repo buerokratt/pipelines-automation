@@ -17,8 +17,14 @@ jobs:
         run: npm run bump-patch
       - name: Generate Changelog
         run: npm run changelog
+      - name: Push changes to repo
+        run: |
+          git config --global user.name ${{ secrets.ADMIN_NAME }}
+          git config --global user.email ${{ secrets.ADMIN_EMAIL }}
+          git commit -am "docs: update version"
+          git push  
       - name: Show files
         run: ls
       - name: Show version file
-        run: cat release.env
+        run: cat release.env  
   
