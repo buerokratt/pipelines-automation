@@ -7,7 +7,7 @@ if [ "$#" -ne 1 ]; then
 fi
 
 # Get the current branch name
-current_branch=$(git branch --show-current)
+current_branch="dev" #$(git branch --show-current)
 
 # Initialize variables
 current_version=""

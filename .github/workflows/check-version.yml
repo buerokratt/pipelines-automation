@@ -1,6 +1,8 @@
 name: Check Version
 
 on:
+  push:
+    branches: ["automated-pipelines-for-code-commits"]  
   workflow_dispatch:
 env:
   BRANCH: ${{ github.head_ref || github.ref_name }}
@@ -11,7 +13,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Bump version
+        run: npm run bump-patch
       - name: Generate Changelog
         run: npm run changelog
       - name: Show files
         run: ls
+      - name: Show version file
+        run: cat release.env
+  
