@@ -16,6 +16,7 @@
 ## Tests
 - **207**: added a test commit by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#67f38a1](https://github.com/1AhmedYasser/pipelines-automation/commit/67f38a1)
 ## Chores
+- **207**: added release config by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#e2af270](https://github.com/1AhmedYasser/pipelines-automation/commit/e2af270)
 - **207**: added fetch depth config by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#b8da070](https://github.com/1AhmedYasser/pipelines-automation/commit/b8da070)
 - **207**: modified check-version by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#12150c0](https://github.com/1AhmedYasser/pipelines-automation/commit/12150c0)
 - **207**: added changes by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#2ff8ee5](https://github.com/1AhmedYasser/pipelines-automation/commit/2ff8ee5)
@@ -29,6 +30,7 @@
 - **207**: Modified commit-msg by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#3eebac1](https://github.com/1AhmedYasser/pipelines-automation/commit/3eebac1)
 - **207**: added a chore commit by [<u>@1AhmedYasser</u>](https://www.github.com/) in [#b0169b1](https://github.com/1AhmedYasser/pipelines-automation/commit/b0169b1)
 ## Others
+- docs: update version by [<u>@1AHMEDYASSER</u>](https://www.github.com/) in [#72bac59](https://github.com/1AhmedYasser/pipelines-automation/commit/72bac59)
 - docs: update version by [<u>@1AHMEDYASSER</u>](https://www.github.com/) in [#063b603](https://github.com/1AhmedYasser/pipelines-automation/commit/063b603)
 - docs: update version by [<u>@1AHMEDYASSER</u>](https://www.github.com/) in [#948af7c](https://github.com/1AhmedYasser/pipelines-automation/commit/948af7c)
 - docs: update version by [<u>@1AHMEDYASSER</u>](https://www.github.com/) in [#1e91c3e](https://github.com/1AhmedYasser/pipelines-automation/commit/1e91c3e)
