@@ -13,3 +13,5 @@ jobs:
         uses: actions/checkout@v4
       - name: Generate Changelog
         run: npm run changelog -v
+      - name: Add The Generated Changelog To Repo
+        run: git add . && git commit -m "Added Changelog" && git push
