@@ -17,6 +17,8 @@ jobs:
         run: npm run bump-patch
       - name: Generate Changelog
         run: npm run changelog
+      - name: Show generated changelog
+        run: cat CHANGELOG.md  
       - name: Push changes to repo
         run: |
           git config --global user.name ${{ secrets.ADMIN_NAME }}
