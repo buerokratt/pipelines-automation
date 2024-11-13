@@ -13,7 +13,7 @@ else
     REPO_URL=${REMOTE_URL%.git}
 fi
 
-current_branch=$(git branch --show-current)
+current_branch="dev" #$(git branch --show-current)
 current_version=""
 
 # Get version based on current branch

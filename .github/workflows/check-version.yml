@@ -31,10 +31,10 @@ jobs:
       - name: Show version file
         run: cat release.env  
       - name: Load environment variables
-        run: awk -v branch=${{ env.BRANCH }} '/^BRANCH=/{p = ($0 == "BRANCH=" branch)} p && NF' release.env >> $GITHUB_ENV
+        run: awk -v branch=dev '/^BRANCH=/{p = ($0 == "BRANCH=" branch)} p && NF' release.env >> $GITHUB_ENV
       - name: Create-Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v1.0.0
+          tag_name: v${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }}
           generate_release_notes: true
           body_path: ${{ github.workspace }}/CHANGELOG.md
