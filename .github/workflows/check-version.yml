@@ -31,7 +31,7 @@ jobs:
       - name: Show version file
         run: cat release.env  
       - name: Load environment variables
-        run: awk -v branch=dev '/^BRANCH=/{p = ($0 == "BRANCH=" branch)} p && NF' release.env >> $GITHUB_ENV
+        run: awk -v branch="dev" ' /^[0-9a-zA-Z]+$/ { current_branch = $0; } current_branch == branch && /^[A-Z_]+=/{ print $0; }' release.env >> $GITHUB_ENV
       - name: Create-Release
         uses: softprops/action-gh-release@v2
         with:
