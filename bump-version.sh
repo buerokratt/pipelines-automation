@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This script is used to bump the version number based on the bump type provided to the current branch.
+
 # Check if the bump type is provided
 if [ "$#" -ne 1 ]; then
     echo "Usage: $0 {major|minor|patch}"
@@ -7,7 +9,7 @@ if [ "$#" -ne 1 ]; then
 fi
 
 # Get the current branch name
-current_branch="dev" #$(git branch --show-current)
+current_branch=$(git branch --show-current)
 
 # Initialize variables
 current_version=""
