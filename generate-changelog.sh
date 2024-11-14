@@ -49,7 +49,7 @@ tests=()
 chores=()
 others=()
 
-commit_log=$(git log origin/${current_branch}..HEAD --oneline --pretty=format:"%s by [<u>@%an</u>](https://www.github.com/) in [#%h]($REPO_URL/commit/%h)")
+commit_log=$(git log origin/${current_branch}..HEAD --oneline --pretty=format:"%s by [<u>@%an</u>](https://www.github.com/%an) in [#%h]($REPO_URL/commit/%h)")
 
 while read -r line; do
     pattern="^([^(:]+)\(([^)]+)\): (.*)"
@@ -63,6 +63,9 @@ while read -r line; do
         type="others"
         rest_of_line="$line"
     fi
+
+    author_link=$(echo $rest_of_line | grep -o 'https://www.github.com/[[:alnum:][:space:]]*' | tr -d '[:space:]')
+    rest_of_line=$(echo "$rest_of_line" | sed "s|https://www.github.com/[[:alnum:][:space:]]*|$author_link|")
 
     case $type in  
         "feat") features+=("- $rest_of_line");;
