@@ -49,7 +49,7 @@ tests=()
 chores=()
 others=()
 
-commit_log=$(git log --pretty=format:"%s by [<u>@%an</u>](https://www.github.com/) in [#%h]($REPO_URL/commit/%h)")
+commit_log=$(git log origin/${current_branch}..HEAD --oneline --pretty=format:"%s by [<u>@%an</u>](https://www.github.com/) in [#%h]($REPO_URL/commit/%h)")
 
 while read -r line; do
     pattern="^([^(:]+)\(([^)]+)\): (.*)"
