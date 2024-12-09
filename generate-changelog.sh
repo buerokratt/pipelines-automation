@@ -40,6 +40,7 @@ changelog_content=$(cat <<EOF
 EOF
 )
 
+
 features=()
 fixes=()
 docs=()
