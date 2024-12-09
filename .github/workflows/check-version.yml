@@ -2,7 +2,7 @@ name: Check Version
 
 on:
   push:
-    branches: ["dev", "test", "stage", "main"]  
+    branches: ["test", "stage", "main"]  
   workflow_dispatch:
 
 env:
@@ -19,15 +19,14 @@ jobs:
 
       - name: Bump Patch Version
         run: npm run bump-patch
-        if: ${{ env.BRANCH == 'dev' }}
+        if: ${{ env.BRANCH == 'test' }}
 
       - name: Sync Version
         run: npm run sync-version
-        if: ${{ env.BRANCH != 'dev' }}  
+        if: ${{ env.BRANCH != 'test' }}  
 
       - name: Generate Changelog
         run: npm run changelog
-        if: ${{ env.BRANCH != 'dev' }}
 
       - name: Push changes to repo
         run: |
