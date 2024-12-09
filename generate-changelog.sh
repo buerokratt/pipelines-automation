@@ -34,6 +34,7 @@ if [ "$found_branch" == true ]; then
     current_version="$MAJOR.$MINOR.$PATCH "
 fi
 
+
 # Prepare the changelog content
 changelog_content=$(cat <<EOF
 ### $current_version($(date +"%d-%m-%Y"))
