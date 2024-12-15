@@ -16,6 +16,7 @@ fi
 current_branch=$(git branch --show-current)
 current_version=""
 
+
 # Get version based on current branch
 found_branch=false
 while IFS= read -r line; do
