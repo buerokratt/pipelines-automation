@@ -2,7 +2,7 @@ name: Check Version
 
 on:
   push:
-    branches: ["test", "stage", "main"]  
+    branches: ["dev", "test", "stage", "main"]
   workflow_dispatch:
 
 env:
@@ -19,11 +19,11 @@ jobs:
 
       - name: Bump Patch Version
         run: npm run bump-patch
-        if: ${{ env.BRANCH == 'test' }}
+        if: ${{ env.BRANCH == 'dev' }}
 
       - name: Sync Version
         run: npm run sync-version
-        if: ${{ env.BRANCH != 'test' }}  
+        if: ${{ env.BRANCH != 'dev' }}
 
       - name: Generate Changelog
         run: npm run changelog
@@ -34,7 +34,7 @@ jobs:
           git config --global user.email ${{ secrets.ADMIN_EMAIL }}
           git add .
           git commit -m "docs: update version"
-          git push  
+          git push
 
       - name: Load environment variables
         run: |
