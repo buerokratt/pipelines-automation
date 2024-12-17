@@ -34,10 +34,9 @@ if [ "$found_branch" == true ]; then
     current_version="$MAJOR.$MINOR.$PATCH "
 fi
 
-
 # Prepare the changelog content
 changelog_content=$(cat <<EOF
-### $current_version($(date +"%d-%m-%Y"))
+### $current_version($(date +"%d, %b %Y"))
 EOF
 )
 
@@ -50,7 +49,11 @@ tests=()
 chores=()
 others=()
 
-commit_log=$(git log origin/${current_branch}..HEAD --oneline --pretty=format:"%s by [<u>@%an</u>](https://www.github.com/%an) in [#%h]($REPO_URL/commit/%h)")
+latest_merge_commit=$(git rev-list --merges --first-parent -n 1 origin/${current_branch})
+parent1=$(git rev-parse ${latest_merge_commit}^1) # For Current branch
+parent2=$(git rev-parse ${latest_merge_commit}^2) # For Branch that was merged
+common_ancestor=$(git merge-base ${parent1} ${parent2})
+commit_log=$(git log ${common_ancestor}..${parent2} --oneline --pretty=format:"%s by [<u>@%an</u>](https://www.github.com/%an) in [#%h]($REPO_URL/commit/%h)")
 
 while read -r line; do
     pattern="^([^(:]+)\(([^)]+)\): (.*)"
