@@ -12,7 +12,6 @@ fi
 current_branch=$(git branch --show-current)
 
 # Initialize variables
-current_version=""
 found_branch=false
 bump_type=$1
 
@@ -25,7 +24,12 @@ while IFS= read -r line; do
         found_branch=true
     elif [ "$found_branch" == true ]; then
         if [[ "$line" == MAJOR=* || "$line" == MINOR=* || "$line" == PATCH=* ]]; then
-            eval "$line"
+            var_name="${line%%=*}"
+            var_value="${line#*=}"
+
+            if [[ "$var_name" == "MAJOR" || "$var_name" == "MINOR" || "$var_name" == "PATCH" ]]; then
+                declare -i "$var_name=$var_value"
+            fi
         else
             break
         fi
