@@ -7,7 +7,7 @@ env_file=$(<release.env)
 REMOTE_URL=$(git config --get remote.origin.url)
 
 if [[ $REMOTE_URL == git@* ]]; then
-    REPO_NAME=$(echo $REMOTE_URL | sed -E 's/git@([^:]+):(.*).git/\1\/\2/')
+    REPO_NAME=$(echo "$REMOTE_URL" | sed -E 's/git@([^:]+):(.*).git/\1\/\2/')
     REPO_URL="https://$REPO_NAME"
 else
     REPO_URL=${REMOTE_URL%.git}
@@ -23,7 +23,12 @@ while IFS= read -r line; do
         found_branch=true
     elif [ "$found_branch" == true ]; then
         if [[ "$line" == MAJOR=* || "$line" == MINOR=* || "$line" == PATCH=* ]]; then
-            eval "$line"
+            var_name="${line%%=*}"
+            var_value="${line#*=}"
+
+            if [[ "$var_name" == "MAJOR" || "$var_name" == "MINOR" || "$var_name" == "PATCH" ]]; then
+                declare -i "$var_name=$var_value"
+            fi
         else
             break
         fi
@@ -49,11 +54,11 @@ tests=()
 chores=()
 others=()
 
-latest_merge_commit=$(git rev-list --merges --first-parent -n 1 origin/${current_branch})
-parent1=$(git rev-parse ${latest_merge_commit}^1) # For Current branch
-parent2=$(git rev-parse ${latest_merge_commit}^2) # For Branch that was merged
-common_ancestor=$(git merge-base ${parent1} ${parent2})
-commit_log=$(git log ${common_ancestor}..${parent2} --oneline --pretty=format:"%s by [<u>@%an</u>](https://www.github.com/%an) in [#%h]($REPO_URL/commit/%h)")
+latest_merge_commit=$(git rev-list --merges --first-parent -n 1 origin/"${current_branch}")
+parent1=$(git rev-parse "${latest_merge_commit}"^1) # For Current branch
+parent2=$(git rev-parse "${latest_merge_commit}"^2) # For Branch that was merged
+common_ancestor=$(git merge-base "${parent1}" "${parent2}")
+commit_log=$(git log "${common_ancestor}".."${parent2}" --oneline --pretty=format:"%s by [<u>@%an</u>](https://www.github.com/%an) in [#%h]($REPO_URL/commit/%h)")
 
 while read -r line; do
     pattern="^([^(:]+)\(([^)]+)\): (.*)"
@@ -68,8 +73,8 @@ while read -r line; do
         rest_of_line="$line"
     fi
 
-    author_link=$(echo $rest_of_line | grep -o 'https://www.github.com/[[:alnum:][:space:]]*' | tr -d '[:space:]')
-    rest_of_line=$(echo "$rest_of_line" | sed "s|https://www.github.com/[[:alnum:][:space:]]*|$author_link|")
+    author_link=$(echo "$rest_of_line" | grep -o 'https://www.github.com/[[:alnum:][:space:]]*' | tr -d '[:space:]')
+    rest_of_line=$(echo "$rest_of_line" | awk -v replacement="$author_link" '{gsub(/https:\/\/www\.github\.com\/[[:alnum:][:space:]]*/, replacement); print}')
 
     case $type in  
         "feat") features+=("- $rest_of_line");;
